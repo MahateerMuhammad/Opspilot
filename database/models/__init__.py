@@ -6,11 +6,12 @@ from .products import Product, Inventory
 from .tickets import Ticket, TicketStatus
 from .workflows import Workflow, WorkflowStep, WorkflowRun, WorkflowRunStatus
 from .audit import AuditLog
+from .idempotency import IdempotencyKey
 
 __all__ = [
     "Base", "RoleEnum", "Tenant", "User",
     "Customer", "Order", "Payment", "OrderStatus", "PaymentStatus",
     "Product", "Inventory", "Ticket", "TicketStatus",
     "Workflow", "WorkflowStep", "WorkflowRun", "WorkflowRunStatus",
-    "AuditLog"
+    "AuditLog", "IdempotencyKey"
 ]

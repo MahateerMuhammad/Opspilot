@@ -83,6 +83,9 @@ async def test_rate_limiting(app, mock_db_session, override_get_db):
     mock_result.scalars.return_value.first.return_value = None
     mock_db_session.execute.return_value = mock_result
     
+    # Clear the limiter so this test starts fresh
+    app.state.limiter._storage.reset()
+
     # Endpoint /login has a 5/minute limit. We will hit it 6 times.
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         for i in range(5):
